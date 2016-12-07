@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>构建模版内容</title>
+		<script src="../../../Resources/angular.min.js"></script>
+	</head>
+	<body>
+		<script type="text/ng-template" id="baseTemplate">
+			  姓名：{{name}} <br /> 邮箱:{{email}}
+		</script>
+		
+		<div ng-include src="'baseTemplate'" ng-controller="myCtrl"></div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("myCtrl",["$scope",function($scope){
+				$scope.name = "lixuanyan";
+				$scope.email = "1327488075@qq.com";
+			}]);
+		</script>
+	</body>
+</html>

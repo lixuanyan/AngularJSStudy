@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>$window对象在表达式中的使用</title>
+	    <script src="../../../Resources/angular.min.js"></script>
+	</head>
+		<div ng-controller="myController">
+			<input type="text" ng-model="name" />
+			<button ng-click="showName()"></button>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("myController",["$window","$scope",function($window,$scope){
+				$scope.name = "忘记";
+				$scope.showName = function(){
+					$window.alert($scope.name+"只是不见你");
+				}
+			}]);
+		</script>
+	<body>
+	</body>
+</html>

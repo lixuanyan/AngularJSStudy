@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Angular表达式的容错性</title>
+		<script src="../../../Resources/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<span>{{tmp}}</span>
+			<button ng-click="showError()">点击</button>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("myController",["$scope",function($scope){
+				$scope.tmp = "lixuanyan";
+				$scope.showError = function(){
+					console.log($scope.tmp);
+				}
+			}]);
+		</script>
+	</body>
+</html>

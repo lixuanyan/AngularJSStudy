@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>添加$scope对象方法</title>
+		<script src="../../../Resources/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<span>{{show_name()}}</span>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("myController",["$scope",function($scope){
+				$scope.text = "lxy";
+				$scope.show_name = function(){
+					$scope.text = "lixuanyan";
+					return  $scope.text;
+				}
+			}]);
+		</script>
+	</body>
+</html>

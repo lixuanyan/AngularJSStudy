@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义过滤器</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<ul>
+				<li>
+					<span>序号</span>
+					<span>姓名</span>
+					<span>性别</span>
+					<span>年龄</span>
+					<span>分数</span>
+				</li>
+				
+				<li ng-repeat="stu in data | young:0">
+					<span>{{$index + 1}}</span>
+					<span>{{stu.name}}</span>
+					<span>{{stu.sex}}</span>
+					<span>{{stu.age}}</span>
+					<span>{{stu.score}}</span>
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[]);
+			app.controller("myController",["$scope",function($scope){
+				$scope.data = [
+				{name:"lixuanyan",sex:"女",age:28,score:89},
+				{name:"发的",sex:"男",age:72,score:59},
+				{name:"时光飞逝",sex:"女",age:22,score:82},
+				{name:"特热水",sex:"男",age:25,score:65},
+				{name:"噶地方撒",sex:"男",age:22,score:84},
+				{name:"发疯的撒",sex:"女",age:23,score:86},
+				{name:"双方的撒",sex:"男",age:43,score:49},
+				{name:"发生",sex:"女",age:29,score:79},
+				];
+			}]);
+			
+			app.filter("young",function(){
+				return function(e,type){
+					var _out = [];
+					var _sex = type ? "男":"女";
+					for(var i = 0; i < e.length; i++){
+						if(e[i].age > 22 && e[i].age < 28 && e[i].sex == _sex){
+							_out.push(e[i]);
+						}
+					}
+					
+					return _out;
+				}
+			});
+			
+		</script>
+	</body>
+</html>

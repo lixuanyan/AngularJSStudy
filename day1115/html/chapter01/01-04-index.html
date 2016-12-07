@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定多个页面元素</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<h1> 以列表的方式显示绑定的多项数据</h1>
+		<div ng-controller="stuController">
+			<ul>
+				<li ng-repeat="stu in allStuData">
+					<span>{{stu.name}}</span>
+					<span>{{stu.sex}}</span>
+					<span>{{stu.age}}</span>
+					<span>{{stu.score}}</span>
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("stuController",["$scope",function($scope){
+				
+				$scope.allStuData = [{name:"lixuanyan",sex:"女",age:10,score:99},
+									 {name:"luanan",sex:"男",age:14,score:79},
+				                     {name:"lixufsganyan",sex:"女",age:30,score:56}];
+			}]);
+		</script>
+	</body>
+</html>

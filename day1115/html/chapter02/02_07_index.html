@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>添加带参数的$scope</title>
+		<script src="../../../Resources/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<span>{{text}}</span>
+			<input type="button" ng-click="showClick("lfdslafjdl")" value="带参数显示" />
+		</div>
+		
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("myController",["$scope",function($scope){
+				$scope.text = "lixuan";
+				$scope.showClick = function(param){
+					$scope.text = param;
+				}
+			}]);
+		</script>
+	</body>
+</html>

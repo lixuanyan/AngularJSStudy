@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定页面a元素</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<h1>请在在列文本框中输入内容</h1>
+		<div ng-controller="usercontroller">
+			<input type="text" ng-model ="user.name" />
+			<div>{{user.name}}</div>
+		</div>
+		
+		<!--
+        	作者：1327488075@qq.com
+        	时间：2016-11-17
+        	描述：用js和ng-model,{{}}数据双向绑定
+        -->
+		<script type="text/javascript">
+			angular.module("myApp",[]).controller("usercontroller",["$scope",function($scope){
+				$scope.user = {"name":"lxy"};
+			}]);
+		</script>
+	</body>
+</html>
