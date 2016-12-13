@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>标记式注入</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<div>{{msg}}</div>
+			<input type="button" value="弹出" ng-click="onShow(' 我是一个弹出对话框')" />
+			<input type="button" value="显示" ng-class="onWrite('今天天气有点冷')" />
+		</div>
+		
+		<script type="text/javascript">
+			var myContrl = function($scope,$show,$write){
+				$scope.onShow = function(msg){
+					$show.show(msg);
+				}
+				
+				$scope.onWrite = function(msg){
+				$scope.msg = $write.write(msg);
+				}
+			}
+			
+			myContrl.$inject = ["$scope","$show","$write"];
+			angular.module("myApp",[]).controller("myController",myContrl).factory("$show",["$window",function($window){
+				return {
+					show:function(text){
+						$window.alert(text);
+					}
+				}
+			}]).factory("$write",function(){
+				return {
+					write:function(text){
+						return text;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

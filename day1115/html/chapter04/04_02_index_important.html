@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>简单依赖注入的示例</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<div>{{msg}}</div>
+			<button ng-click="showMsg(1)">早上</button>
+			<button ng-click="showMsg(2)">上午</button>
+			<button ng-click="showMsg(3)">中午</button>
+			<button ng-click="showMsg(4)">晚上</button>
+		</div>
+		
+		<script type="text/javascript">
+			var myApp = angular.module("myApp",[]);
+			myApp.config(function($provide){
+				$provide.provider("show1",function(){
+					this.$get=function(){
+						return {
+							val:function(name){
+								return name;
+							}
+						}
+					}
+				});
+			});
+			
+			myApp.config(function($provide){
+				$provide.factory("show2",function(){
+					return {
+						val:function(name){
+							return name;
+						}
+					}
+				});
+			});
+			
+			myApp.config(function($provide){
+				$provide.value("show3",function(name){
+					return name;
+				});
+			});
+			
+			myApp.config(function($provide){
+				$provide.service("show4",function(){
+					return {
+						val:function(name){
+							return name;
+						}
+					}
+				});
+			});
+			
+			myApp.controller("myController",function($scope,show1,show2,show3,show4){
+				$scope.showMsg = function(t){
+					switch(t){
+						case 1:
+							$scope.msg = show1.val("早上好 ");
+							break;
+						case 2:
+							$scope.msg = show2.val("上午好 ");
+							break;
+						case 3:
+							$scope.msg = show3("下午好 ");
+							break;
+						case 4:
+							$scope.msg = show4.val("晚上好 ");
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

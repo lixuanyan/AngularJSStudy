@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>依赖注入的原理</title>
+		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<div>{{showMsg}}</div>
+			<button ng-click="showMsgClick()">点我</button>
+		</div>
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[]);
+			app.config(function($controllerProvider){
+				$controllerProvider.register("myController",["$scope",function($scope){
+					$scope.showMsgClick = function(){
+						$scope.showMsg = "点击后显示的内容";
+					}
+				}]);
+			})
+		</script>
+	</body>
+</html>
