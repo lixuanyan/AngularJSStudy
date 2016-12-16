@@ -3,14 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Model组件的基础概念</title>
-		<script src="../../../Resources/angular.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../../../Resources/angular-1.6.0/angular.js" ></script>
 	</head>
 	<body>
 		<div ng-controller="myController">
 			<ul>
-				<li ng-repeat="stu in data"></li>
+				<li ng-repeat="stu in data">
 				<span>{{stu.name}}</span>
 				<span>{{stu.sex}}</span>
+				</li>
 			</ul>
 		</div>
 		
@@ -22,7 +23,7 @@
 				{name:'lsdfjsl',sex:'女'},
 				{name:'放大舒服',sex:'男'}
 				];
-			}])
+			}]);
 		</script>
 	</body>
 </html>
