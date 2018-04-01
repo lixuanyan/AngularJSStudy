@@ -28,9 +28,14 @@
     UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(10, 100, 100, 40)];
     testView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:testView];
+
     
     UILabel *label = [[UILabel alloc] init];
     [self.view addSubview:label];
+
+    UIButton *testBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIView *testView11 = [[UIView alloc]init];
+
 
 }
 
