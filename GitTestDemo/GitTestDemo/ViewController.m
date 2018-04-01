@@ -20,12 +20,17 @@
     
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:button];
     
     UIView *view = [[UIView alloc]init];
+    [self.view addSubview:view];
 
     UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(10, 100, 100, 40)];
     testView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:testView];
+    
+    UILabel *label = [[UILabel alloc] init];
+    [self.view addSubview:label];
 
 }
 
