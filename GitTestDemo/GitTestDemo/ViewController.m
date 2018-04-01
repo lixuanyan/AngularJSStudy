@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    UIView *view = [[UIView alloc]init];
 }
 
 
