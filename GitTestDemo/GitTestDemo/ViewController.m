@@ -18,9 +18,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+<<<<<<< HEAD
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
     UIView *view = [[UIView alloc]init];
+=======
+    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(10, 100, 100, 40)];
+    testView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:testView];
+>>>>>>> 1b7bb0e67c9c4c5a289cd6a2685f9beac0775bf3
 }
 
 
